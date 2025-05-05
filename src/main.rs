@@ -27,8 +27,9 @@ async fn recommend(req: Request<()>) -> tide::Result {
         },
     ];
 
-    Ok(Response::new(StatusCode::Ok)
-        .body_json(&recs)?)
+    let mut response = Response::new(StatusCode::Ok);
+    response.set_body(tide::Body::from_json(&recs)?);
+    Ok(response)
 }
 
 #[async_std::main]
