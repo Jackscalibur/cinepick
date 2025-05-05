@@ -13,7 +13,7 @@ struct Recommendation {
 }
 
 async fn recommend(req: Request<()>) -> tide::Result {
-    let query: RecommendQuery = req.query()?;
+    let _query: RecommendQuery = req.query()?; // Unused for now
 
     // Dummy response for now
     let recs = vec![
